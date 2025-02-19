@@ -1,0 +1,18 @@
+services:
+  runner:
+    image: zeauw/act-runner-env-rocm
+    restart: always
+    devices:
+      - "/dev/kfd:/dev/kfd"
+      - "/dev/dri:/dev/dri"
+    group_add:
+      - "video"
+    volumes:
+      - ./data:/act
+    environment:
+      - GITEA_INSTANCE_URL=<instance url>
+      # When using Docker Secrets, it's also possible to use
+      # GITEA_RUNNER_REGISTRATION_TOKEN_FILE to pass the location.
+      # The env var takes precedence.
+      # Needed only for the first start.
+      - GITEA_RUNNER_REGISTRATION_TOKEN=<registration token>
