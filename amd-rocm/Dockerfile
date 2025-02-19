@@ -8,7 +8,7 @@ RUN apt update &&\
     apt install -y ./amdgpu-install_6.2.60200-1_all.deb
 
 # install rocm
-RUN amdgpu-install --usecase=rocm
+RUN amdgpu-install -y --usecase=rocm
 
 # install envs
 RUN apt install -y python3-pip gcc make cmake clang
