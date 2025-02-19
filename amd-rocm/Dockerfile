@@ -3,6 +3,7 @@ FROM ubuntu:24.04
 ENV ACT_VERSION=0.2.11
 
 RUN apt update &&\
+    apt install bash wget &&\
     wget https://repo.radeon.com/amdgpu-install/6.2/ubuntu/noble/amdgpu-install_6.2.60200-1_all.deb &&\
     apt install ./amdgpu-install_6.2.60200-1_all.deb
 
@@ -10,7 +11,7 @@ RUN apt update &&\
 RUN amdgpu-install --usecase=rocm
 
 # install envs
-RUN apt install python3-pip gcc make cmake clang wget
+RUN apt install python3-pip gcc make cmake clang
 
 
 RUN mkdir -p /act &&\
