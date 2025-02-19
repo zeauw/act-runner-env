@@ -1,17 +1,9 @@
-FROM ubuntu:24.04
+FROM rocm/pytorch:latest
 
 ENV ACT_VERSION=0.2.11
 
 RUN apt update &&\
-    apt install -y bash wget &&\
-    wget https://repo.radeon.com/amdgpu-install/6.2/ubuntu/noble/amdgpu-install_6.2.60200-1_all.deb &&\
-    apt install -y ./amdgpu-install_6.2.60200-1_all.deb
-
-# install rocm
-RUN amdgpu-install -y --usecase=rocm
-
-# install envs
-RUN apt install -y python3-pip gcc make cmake clang
+    apt install -y bash wget cmake make gcc
 
 
 RUN mkdir -p /act &&\
