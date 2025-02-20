@@ -1,6 +1,11 @@
 #!/bin/bash
 
+if [[ ! -d /act ]]; then
+  mkdir -p /act
+
 cd /act
+
+RUNNER_STATE_FILE=${RUNNER_STATE_FILE:-'.runner'}
 
 CONFIG_ARG=""
 if [[ ! -z "${CONFIG_FILE}" ]]; then
