@@ -15,4 +15,4 @@ RUN curl https://dl.gitea.com/act_runner/${ACT_VERSION}/act_runner-${ACT_VERSION
 
 COPY ../scripts/run.sh /act/run.sh
 
-ENTRYPOINT [ "/bin/bash", "-c", "/act/run.sh" ]
+ENTRYPOINT [ "/bin/bash", "/act/run.sh" ]
