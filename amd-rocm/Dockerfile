@@ -9,10 +9,13 @@ RUN apt update &&\
 RUN mkdir -p /act &&\
     chmod go+w /act
 
-WORKDIR /act
+WORKDIR /tmp
 
 RUN curl https://dl.gitea.com/act_runner/${ACT_VERSION}/act_runner-${ACT_VERSION}-linux-amd64 --output act_runner
 
-COPY ../scripts/run.sh /act/run.sh
+RUN mv act_runner /usr/local/bin/act_runner &&\
+    chmod +x /usr/local/bin/act_runner
 
-ENTRYPOINT [ "/bin/bash", "/act/run.sh" ]
+COPY ../scripts/run.sh /usr/local/bin/run.sh
+
+ENTRYPOINT [ "/bin/bash", "/usr/local/bin/run.sh" ]
