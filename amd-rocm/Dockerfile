@@ -20,7 +20,7 @@ RUN mv act_runner /usr/local/bin/act_runner &&\
 
 WORKDIR /
 
-RUN rm -rf /tmp
+RUN rm -rf /temp
 
 COPY ../scripts/run.sh /usr/local/bin/run.sh
 
