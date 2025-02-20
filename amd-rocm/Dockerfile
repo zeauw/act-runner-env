@@ -9,9 +9,9 @@ RUN apt update &&\
 RUN mkdir -p /act &&\
     chmod go+w /act
 
-RUN mkdir /tmp
+RUN mkdir /temp
 
-WORKDIR /tmp
+WORKDIR /temp
 
 RUN curl https://dl.gitea.com/act_runner/${ACT_VERSION}/act_runner-${ACT_VERSION}-linux-amd64 --output act_runner
 
