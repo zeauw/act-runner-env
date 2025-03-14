@@ -2,6 +2,7 @@
 
 if [[ ! -d /act ]]; then
   mkdir -p /act
+fi
 
 cd /act
 
